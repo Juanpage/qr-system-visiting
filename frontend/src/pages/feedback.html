@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visiting Galapagos | Cruise Feedback</title>
+  <link rel="stylesheet" href="../assets/css/feedback.css">
+</head>
+<body>
+  <header>
+    <h1>Visiting Galapagos | Guest Feedback</h1>
+  </header>
+  <main>
+    <div id="error-box" class="error" hidden></div>
+    <section>
+      <h2 class="section-title">Thank you for sailing with us aboard <span id="vessel-name"></span></h2>
+      <p class="notice">We appreciate your time in sharing your experience. No personal data is required.</p>
+    </section>
+
+    <form id="feedback-form">
+      <input type="hidden" id="vessel_id" name="vessel_id" />
+
+      <div class="form-grid">
+        <div>
+          <label for="nationality">Nationality <span class="error">*</span></label>
+          <select id="nationality" name="nationality" required>
+            <option value="">Select your country</option>
+          </select>
+        </div>
+        <div>
+          <label for="cabin_number">Cabin Number <span class="error">*</span></label>
+          <input type="text" id="cabin_number" name="cabin_number" placeholder="e.g. 3B" required />
+        </div>
+      </div>
+
+      <section>
+        <h3>1) How likely is it that you would recommend us to a friend or relative? <span class="error">*</span></h3>
+        <div class="rating-options">
+          <label><input type="radio" name="likelihood" value="Very Likely" required /> Very Likely</label>
+          <label><input type="radio" name="likelihood" value="Likely" /> Likely</label>
+          <label><input type="radio" name="likelihood" value="Not Likely" /> Not Likely</label>
+        </div>
+      </section>
+
+      <section>
+        <h3>Service Ratings (1 = Needs Improvement, 5 = Excellent) <span class="error">*</span></h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Service Area</th>
+                <th style="width: 220px;">Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Your Naturalist Guide</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="guide_score" value="1" required />1</label>
+                    <label><input type="radio" name="guide_score" value="2" />2</label>
+                    <label><input type="radio" name="guide_score" value="3" />3</label>
+                    <label><input type="radio" name="guide_score" value="4" />4</label>
+                    <label><input type="radio" name="guide_score" value="5" />5</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Crew friendliness and attention</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="crew_friendliness_score" value="1" required />1</label>
+                    <label><input type="radio" name="crew_friendliness_score" value="2" />2</label>
+                    <label><input type="radio" name="crew_friendliness_score" value="3" />3</label>
+                    <label><input type="radio" name="crew_friendliness_score" value="4" />4</label>
+                    <label><input type="radio" name="crew_friendliness_score" value="5" />5</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Cleanliness of boat</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="cleanliness_score" value="1" required />1</label>
+                    <label><input type="radio" name="cleanliness_score" value="2" />2</label>
+                    <label><input type="radio" name="cleanliness_score" value="3" />3</label>
+                    <label><input type="radio" name="cleanliness_score" value="4" />4</label>
+                    <label><input type="radio" name="cleanliness_score" value="5" />5</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Crew &amp; Guides professionalism</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="professionalism_score" value="1" required />1</label>
+                    <label><input type="radio" name="professionalism_score" value="2" />2</label>
+                    <label><input type="radio" name="professionalism_score" value="3" />3</label>
+                    <label><input type="radio" name="professionalism_score" value="4" />4</label>
+                    <label><input type="radio" name="professionalism_score" value="5" />5</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Meals quality and dining service</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="meals_score" value="1" required />1</label>
+                    <label><input type="radio" name="meals_score" value="2" />2</label>
+                    <label><input type="radio" name="meals_score" value="3" />3</label>
+                    <label><input type="radio" name="meals_score" value="4" />4</label>
+                    <label><input type="radio" name="meals_score" value="5" />5</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Your cabin's accommodation</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="cabin_score" value="1" required />1</label>
+                    <label><input type="radio" name="cabin_score" value="2" />2</label>
+                    <label><input type="radio" name="cabin_score" value="3" />3</label>
+                    <label><input type="radio" name="cabin_score" value="4" />4</label>
+                    <label><input type="radio" name="cabin_score" value="5" />5</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Briefing room and other interior social areas</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="interior_areas_score" value="1" required />1</label>
+                    <label><input type="radio" name="interior_areas_score" value="2" />2</label>
+                    <label><input type="radio" name="interior_areas_score" value="3" />3</label>
+                    <label><input type="radio" name="interior_areas_score" value="4" />4</label>
+                    <label><input type="radio" name="interior_areas_score" value="5" />5</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Sundeck &amp; other outside areas</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="sundeck_score" value="1" required />1</label>
+                    <label><input type="radio" name="sundeck_score" value="2" />2</label>
+                    <label><input type="radio" name="sundeck_score" value="3" />3</label>
+                    <label><input type="radio" name="sundeck_score" value="4" />4</label>
+                    <label><input type="radio" name="sundeck_score" value="5" />5</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Cruise experience based upon price for quality &amp; value received</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="value_score" value="1" required />1</label>
+                    <label><input type="radio" name="value_score" value="2" />2</label>
+                    <label><input type="radio" name="value_score" value="3" />3</label>
+                    <label><input type="radio" name="value_score" value="4" />4</label>
+                    <label><input type="radio" name="value_score" value="5" />5</label>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h3>2) Kindly share the highlights of your cruise expedition</h3>
+        <textarea id="best_part" name="best_part" placeholder="What made this journey special for you?"></textarea>
+      </section>
+
+      <section>
+        <h3>3) Comments and suggestions</h3>
+        <textarea id="improvement" name="improvement" placeholder="Tell us how we can enhance the experience"></textarea>
+        <p class="footer-note">No personal data is required. If you wish to share your details, please enter them below.</p>
+      </section>
+
+      <div class="form-grid">
+        <div>
+          <label for="name">Name (optional)</label>
+          <input type="text" id="name" name="name" placeholder="Your full name" />
+        </div>
+        <div>
+          <label for="email">Email (optional)</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" />
+        </div>
+      </div>
+
+      <div style="margin-top: 24px;">
+        <button type="submit" class="button" id="submit-btn">Submit feedback</button>
+      </div>
+    </form>
+  </main>
+  <script src="/assets/js/feedback.js"></script>
+</body>
+</html>

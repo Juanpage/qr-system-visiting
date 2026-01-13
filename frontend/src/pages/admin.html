@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guest Feedback Dashboard</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+
+<body class="admin-page">
+
+<!-- ===============================
+     ADMIN LOCK
+=============================== -->
+<div id="admin-lock">
+  <div class="lock-card">
+    <h2>Admin Access</h2>
+    <p>Please enter the dashboard password.</p>
+    <input type="password" id="admin-password" placeholder="Password" />
+    <button id="unlock-btn" type="button">Enter dashboard</button>
+    <p id="lock-error"></p>
+  </div>
+</div>
+
+<!-- ===============================
+     DASHBOARD
+=============================== -->
+<div class="container">
+  <div class="card">
+    <h1>Guest Feedback Dashboard</h1>
+    <p>Monitor guest sentiment across vessels.</p>
+
+    <!-- ===============================
+         ALERTA INMEDIATA (SOLO VISUAL)
+    =============================== -->
+    <div class="alert-card">
+      <div class="alert-indicator"></div>
+
+      <div class="alert-content">
+        <div class="alert-header">
+          <div class="alert-title">No active alerts</div>
+          <div class="alert-meta"></div>
+        </div>
+
+        <div class="alert-message"></div>
+      </div>
+    </div>
+
+    <!-- ===============================
+         FILTERS
+    =============================== -->
+    <h3>Filters</h3>
+    <div class="filters">
+      <label>
+        Vessel
+        <select id="filter-vessel">
+          <option value="">All vessels</option>
+          <option value="LETTY">LETTY</option>
+          <option value="CALIPSO">CALIPSO</option>
+          <option value="NAREL">NAREL</option>
+        </select>
+      </label>
+
+      <label>
+        Cruise date
+        <input type="date" id="filter-date" />
+      </label>
+    </div>
+
+    <div class="actions">
+      <button id="apply-filters" class="secondary" type="button">
+        Apply filters
+      </button>
+      <button id="export-csv" class="secondary" type="button">
+        Export CSV
+      </button>
+    </div>
+
+    <!-- ===============================
+         OVERVIEW
+    =============================== -->
+    <h3>Overview</h3>
+    <div class="kpis">
+      <div class="kpi">
+        <span>Total responses</span>
+        <strong id="metric-total">0</strong>
+      </div>
+      <div class="kpi" id="kpi-rating">
+        <span>Average rating</span>
+        <strong id="metric-rating">0</strong>
+      </div>
+      <div class="kpi" id="kpi-nps">
+        <span>Average NPS</span>
+        <strong id="metric-nps">0</strong>
+      </div>
+      <div class="kpi">
+        <span>Responses (last 30 days)</span>
+        <strong id="metric-last">0</strong>
+      </div>
+    </div>
+<!-- ===============================
+    GRAFICOS
+=============================== -->
+    <div class="chart-box">
+  <canvas id="ratingChart"></canvas>
+</div>
+
+<div class="chart-box">
+  <canvas id="npsChart"></canvas>
+</div>
+
+    <!-- ===============================
+         RECENT FEEDBACK (GESTIÓN REAL)
+    =============================== -->
+    <h3>Recent feedback</h3>
+    <table id="recent-table">
+      <thead>
+      <tr>
+      <th>ID</th>
+      <th>Vessel</th>
+      <th>Nationality</th>
+      <th>Cruise date</th>
+      <th>Cabin</th>
+      <th>Rating</th>
+      <th>NPS</th>
+      <th>Submitted</th>
+      <th>Alert status</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+
+      <tbody></tbody>
+    </table>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../assets/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+/* ===============================
+   Feedback Form – Optimized & Polished
+=============================== */
+
+:root {
+  --bg: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+  --text: #0f172a;
+  --muted: #475569;
+  --muted-2: #64748b;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --border-strong: #cbd5e1;
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --primary: #2563eb;
+  --primary-soft: rgba(37, 99, 235, 0.15);
+  --table-header: #f1f5f9;
+  --table-line: #e2e8f0;
+  --error-bg: #fee2e2;
+  --error-text: #991b1b;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+}
+
+header {
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+main {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 20px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 16px 0 8px;
+}
+
+h2.section-title {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+section {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+section h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.notice {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+form {
+  max-width: 860px;
+  margin: 0 auto;
+  margin-top: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  font-size: 0.95rem;
+  background: var(--card);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-soft);
+}
+
+/* Radio groups */
+.rating-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.rating-options label {
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.rating-options label:hover {
+  background: #f1f5f9;
+  transform: translateY(-1px);
+}
+
+.rating-options input[type="radio"] {
+  margin-right: 4px;
+  accent-color: var(--primary);
+  transform: scale(1.15);
+}
+
+/* Table (service ratings) */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+table th {
+  text-align: left;
+  padding: 10px;
+  background: var(--table-header);
+  font-weight: 600;
+  color: #334155;
+}
+
+table td {
+  padding: 10px;
+  border-bottom: 1px solid var(--table-line);
+}
+
+table td:first-child {
+  font-weight: 500;
+}
+
+table th:last-child,
+table td:last-child {
+  width: 260px;
+}
+
+.table-wrapper .rating-options {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 14px;
+  white-space: nowrap;
+}
+
+.table-wrapper .rating-options label {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  table th:last-child,
+  table td:last-child {
+    width: 220px;
+  }
+
+  .table-wrapper .rating-options {
+    gap: 10px;
+  }
+}
+
+/* Buttons */
+button {
+  appearance: none;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 12px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--primary);
+  color: var(--card);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+
+button:hover {
+  opacity: 0.96;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* Messages */
+.status-error {
+  background: var(--error-bg);
+  color: var(--error-text);
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+}
+
+.error {
+  color: #dc2626;
+}
+
+.footer-note {
+  color: var(--muted-2);
+  font-size: 0.9rem;
+  margin-top: 8px;
+  border-top: 1px dashed var(--table-line);
+  padding-top: 12px;
+}
+
+/* Select: keep native, fix stacking */
+select {
+  appearance: auto;
+  -webkit-appearance: menulist;
+  -moz-appearance: menulist;
+  pointer-events: auto;
+  position: relative;
+  z-index: 2;
+}
+/* ===============================
+   FOCO VISUAL CENTRAL
+=============================== */
+main {
+  padding-bottom: 80px;
+}
+
+form {
+  background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+}
+
+/* ===============================
+   SECCIÓN DESTACADA (INPUTS CLAVE)
+=============================== */
+.form-grid {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+}
+
+/* ===============================
+   TITULOS MÁS PREMIUM
+=============================== */
+h3 {
+  letter-spacing: -0.01em;
+}
+
+/* ===============================
+   RADIO BUTTONS → EXPERIENCIA TABLET
+=============================== */
+.rating-options label {
+  border: 1px solid transparent;
+}
+
+.rating-options label:has(input:checked) {
+  background: #e0e7ff;
+  border-color: #2563eb;
+  font-weight: 700;
+}
+
+/* ===============================
+   BOTÓN FINAL PODEROSO
+=============================== */
+#submit-btn {
+  width: 100%;
+  font-size: 1.05rem;
+  padding: 14px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
