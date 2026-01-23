@@ -287,7 +287,7 @@ body.thanks-page {
 }
 
 .thanks-card {
-  max-width: 480px;
+  max-width: 520px;
   background: #ffffff;
   border-radius: 16px;
   padding: 2.5rem 2rem;
@@ -369,4 +369,97 @@ body.thanks-page {
 #admin-lock button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+/* ===============================
+   ADMIN DASHBOARD – PRO LOOK
+=============================== */
+
+.admin-dashboard {
+  max-width: 1200px;
+}
+
+.dashboard-header {
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.dashboard-subtitle {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.filters-section,
+.overview-section,
+.charts-section,
+.table-section,
+.alert-section {
+  margin-top: 2rem;
+}
+
+/* KPIs */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.kpi {
+  padding: 1.2rem;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.kpi span {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.kpi strong {
+  font-size: 1.8rem;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* Charts */
+.charts-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.chart-box {
+  padding: 1rem;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* Table */
+.table-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.table-section th {
+  text-align: left;
+  font-size: 0.8rem;
+  color: #6b7280;
+  padding-bottom: 0.5rem;
+}
+
+.table-section td {
+  padding: 0.6rem 0;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.9rem;
+}
+
+/* Alert card spacing fix */
+.alert-card {
+  margin-top: 0;
 }
