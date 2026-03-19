@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | Visiting Galapagos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html, body {
+      margin: 0; padding: 0;
+      min-height: 100vh;
+      font-family: 'DM Sans', system-ui, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(160deg, #071a2e 0%, #0d3153 50%, #0a5c72 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    /* Stars */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 15% 10%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 75% 6%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 40% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 30%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 60% 12%, rgba(255,255,255,0.55) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 48px 40px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #14b8a6, #0a7ea4, #c9a84c);
+    }
+
+    .confetti {
+      font-size: 3.5rem;
+      margin-bottom: 12px;
+      display: block;
+      animation: bounce 1.2s ease infinite alternate;
+    }
+
+    @keyframes bounce {
+      from { transform: translateY(0) rotate(-3deg); }
+      to   { transform: translateY(-8px) rotate(3deg); }
+    }
+
+    .brand {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #8fa3b1;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0f1f2e;
+      margin: 0 0 8px;
+      line-height: 1.1;
+    }
+
+    .vessel-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f0f8fa;
+      border: 1px solid #a5d6e2;
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #0a7ea4;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      font-size: 0.95rem;
+      color: #4a6375;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    /* Cocktail reward card */
+    .reward-card {
+      background: linear-gradient(135deg, #071a2e, #0d3153);
+      border-radius: 16px;
+      padding: 22px 20px;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reward-card::after {
+      content: '🍹';
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2.5rem;
+      opacity: 0.25;
+    }
+
+    .reward-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #14b8a6;
+      margin-bottom: 6px;
+    }
+
+    .reward-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 6px;
+    }
+
+    .reward-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
+
+    .reward-desc strong {
+      color: #c9a84c;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #e5eef2;
+      margin: 0 0 24px;
+    }
+
+    .footer-note {
+      font-size: 0.85rem;
+      color: #8fa3b1;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0d3153, #0a7ea4);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 6px 18px rgba(7,49,83,0.25);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(7,49,83,0.35);
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 36px 24px; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="confetti">🌊</span>
+    <p class="brand">Visiting Galapagos</p>
+    <h1>Thank You!</h1>
+    <div class="vessel-badge" id="vessel-badge">🚢 <span id="vessel-display">Your Vessel</span></div>
+
+    <p class="message">
+      Your feedback is truly valued — it helps us deliver an exceptional Galapagos experience for every guest who sails with us. We are committed to continuously improving.
+    </p>
+
+    <div class="reward-card">
+      <p class="reward-label">🎁 Guest Reward</p>
+      <p class="reward-title">Complimentary Cocktail</p>
+      <p class="reward-desc">
+        <strong>Show this screen to our barman</strong> and claim your courtesy cocktail or glass of house wine — our way of saying thank you for sharing your experience.
+      </p>
+    </div>
+
+    <hr class="divider">
+
+    <p class="footer-note">
+      Safe travels ✈️ — we look forward to welcoming you back on board. Follow us to stay up to date with our expeditions and special offers.
+    </p>
+
+    <a href="https://visitingalapagos.com" class="btn">
+      🌿 Back to website
+    </a>
+  </div>
+
+  <script>
+    // Show vessel name from URL param
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('vessel') || '';
+    const VESSELS = { letty: 'Letty', calipso: 'Calipso', narel: 'Narel' };
+    const name = VESSELS[slug.toLowerCase()] || slug.toUpperCase() || 'Your Vessel';
+    document.getElementById('vessel-display').textContent = name;
+  </script>
+</body>
+</html>

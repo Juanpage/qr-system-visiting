@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visiting Galapagos | Cruise Feedback</title>
+  <link rel="stylesheet" href="../assets/css/feedback.css">
+</head>
+<body>
+
+  <!-- ========== VESSEL HERO ========== -->
+  <div class="vessel-hero">
+    <div class="vessel-hero-bg"></div>
+    <div class="hero-stars"></div>
+
+    <div class="wave-container">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#fdf8f0"/>
+      </svg>
+    </div>
+
+    <div class="vessel-hero-content">
+      <div class="brand-header">
+        <span class="brand-anchor">⚓</span>
+        <span class="brand-name">Visiting Galapagos</span>
+      </div>
+
+      <div class="vessel-emblem" id="vessel-emblem">
+        <!-- Vessel-specific emoji/image set by JS -->
+        🚢
+      </div>
+      <span class="vessel-label">You sailed aboard</span>
+      <div class="vessel-title" id="vessel-name">—</div>
+    </div>
+  </div>
+
+  <!-- ========== MAIN ========== -->
+  <main>
+
+    <!-- Error box -->
+    <div id="error-box" hidden></div>
+
+    <!-- Already submitted -->
+    <div id="already-submitted" hidden>
+      <div class="check-icon">✅</div>
+      <h3>Feedback Already Received</h3>
+      <p>Thank you! We already recorded your feedback for this cabin today.<br>We truly appreciate your time.</p>
+    </div>
+
+    <!-- Intro card -->
+    <div class="intro-card" id="intro-card">
+      <div class="intro-icon">🌿</div>
+      <div class="intro-text">
+        <h2 class="section-title">Thank you for sailing with us — share your experience</h2>
+        <p class="notice">No personal data required. Your feedback helps us deliver an exceptional Galapagos experience.</p>
+      </div>
+    </div>
+
+    <!-- ========== FEEDBACK FORM ========== -->
+    <form id="feedback-form" novalidate>
+      <input type="hidden" id="vessel_slug" name="vessel_slug" />
+      <input type="hidden" id="qr_token" name="qr_token" />
+
+      <!-- Section 0 — Guest info -->
+      <div class="form-section">
+        <div class="form-grid">
+          <div>
+            <label for="nationality">Nationality <span class="req">*</span></label>
+            <select id="nationality" name="nationality" required>
+              <option value="">Select your country</option>
+            </select>
+          </div>
+          <div>
+            <label for="cabin_number">Cabin Number <span class="req">*</span></label>
+            <input type="text" id="cabin_number" name="cabin_number" placeholder="e.g. 3B" required />
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 1 — NPS -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-number">1</div>
+          <h3>How likely are you to recommend us to a friend or family? <span class="req">*</span></h3>
+        </div>
+        <div class="nps-options">
+          <label><input type="radio" name="likelihood" value="Very Likely" required /> 😍 Very Likely</label>
+          <label><input type="radio" name="likelihood" value="Likely" /> 😊 Likely</label>
+          <label><input type="radio" name="likelihood" value="Not Likely" /> 😕 Not Likely</label>
+        </div>
+      </div>
+
+      <!-- Section 2 — Service Ratings -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-number">2</div>
+          <h3>Service Ratings &nbsp;<small style="font-weight:400;color:#8fa3b1;">(1 = Needs Improvement, 5 = Excellent)</small> <span class="req">*</span></h3>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Service Area</th>
+                <th style="text-align:center;">1 &nbsp; 2 &nbsp; 3 &nbsp; 4 &nbsp; 5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>🧭 Your Naturalist Guide</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="guide_score" value="1" required/>1</label>
+                    <label><input type="radio" name="guide_score" value="2"/>2</label>
+                    <label><input type="radio" name="guide_score" value="3"/>3</label>
+                    <label><input type="radio" name="guide_score" value="4"/>4</label>
+                    <label><input type="radio" name="guide_score" value="5"/>5</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>🤝 Crew Friendliness &amp; Attention</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="crew_friendliness_score" value="1" required/>1</label>
+                    <label><input type="radio" name="crew_friendliness_score" value="2"/>2</label>
+                    <label><input type="radio" name="crew_friendliness_score" value="3"/>3</label>
+                    <label><input type="radio" name="crew_friendliness_score" value="4"/>4</label>
+                    <label><input type="radio" name="crew_friendliness_score" value="5"/>5</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>✨ Cleanliness of the Boat</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="cleanliness_score" value="1" required/>1</label>
+                    <label><input type="radio" name="cleanliness_score" value="2"/>2</label>
+                    <label><input type="radio" name="cleanliness_score" value="3"/>3</label>
+                    <label><input type="radio" name="cleanliness_score" value="4"/>4</label>
+                    <label><input type="radio" name="cleanliness_score" value="5"/>5</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>🎓 Crew &amp; Guides Professionalism</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="professionalism_score" value="1" required/>1</label>
+                    <label><input type="radio" name="professionalism_score" value="2"/>2</label>
+                    <label><input type="radio" name="professionalism_score" value="3"/>3</label>
+                    <label><input type="radio" name="professionalism_score" value="4"/>4</label>
+                    <label><input type="radio" name="professionalism_score" value="5"/>5</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>🍽️ Meals Quality &amp; Dining Service</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="meals_score" value="1" required/>1</label>
+                    <label><input type="radio" name="meals_score" value="2"/>2</label>
+                    <label><input type="radio" name="meals_score" value="3"/>3</label>
+                    <label><input type="radio" name="meals_score" value="4"/>4</label>
+                    <label><input type="radio" name="meals_score" value="5"/>5</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>🛏️ Your Cabin Accommodation</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="cabin_score" value="1" required/>1</label>
+                    <label><input type="radio" name="cabin_score" value="2"/>2</label>
+                    <label><input type="radio" name="cabin_score" value="3"/>3</label>
+                    <label><input type="radio" name="cabin_score" value="4"/>4</label>
+                    <label><input type="radio" name="cabin_score" value="5"/>5</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>🛋️ Interior Social Areas &amp; Briefing Room</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="interior_areas_score" value="1" required/>1</label>
+                    <label><input type="radio" name="interior_areas_score" value="2"/>2</label>
+                    <label><input type="radio" name="interior_areas_score" value="3"/>3</label>
+                    <label><input type="radio" name="interior_areas_score" value="4"/>4</label>
+                    <label><input type="radio" name="interior_areas_score" value="5"/>5</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>☀️ Sundeck &amp; Outside Areas</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="sundeck_score" value="1" required/>1</label>
+                    <label><input type="radio" name="sundeck_score" value="2"/>2</label>
+                    <label><input type="radio" name="sundeck_score" value="3"/>3</label>
+                    <label><input type="radio" name="sundeck_score" value="4"/>4</label>
+                    <label><input type="radio" name="sundeck_score" value="5"/>5</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>💎 Value for Money</td>
+                <td>
+                  <div class="rating-options">
+                    <label><input type="radio" name="value_score" value="1" required/>1</label>
+                    <label><input type="radio" name="value_score" value="2"/>2</label>
+                    <label><input type="radio" name="value_score" value="3"/>3</label>
+                    <label><input type="radio" name="value_score" value="4"/>4</label>
+                    <label><input type="radio" name="value_score" value="5"/>5</label>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Section 3 — Open feedback -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-number">3</div>
+          <h3>What were the highlights of your cruise expedition?</h3>
+        </div>
+        <textarea id="best_part" name="best_part" placeholder="Share the moments that made this journey unforgettable..."></textarea>
+      </div>
+
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-number">4</div>
+          <h3>Comments &amp; suggestions for improvement</h3>
+        </div>
+        <textarea id="improvement" name="improvement" placeholder="How can we enhance your experience next time?"></textarea>
+      </div>
+
+      <!-- Optional contact -->
+      <div class="form-section">
+        <div class="optional-card">
+          <span class="optional-label">Optional — Contact Details</span>
+          <div class="form-grid">
+            <div>
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Full name" />
+            </div>
+            <div>
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" />
+            </div>
+          </div>
+          <p class="footer-note">Your personal details are never required. If you wish to receive a follow-up from our team, you may share them above.</p>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="submit-wrapper">
+        <button type="submit" id="submit-btn">Submit Feedback &nbsp;→</button>
+      </div>
+
+    </form>
+  </main>
+
+  <script src="/assets/js/feedback.js"></script>
+</body>
+</html>
